@@ -1,6 +1,7 @@
 package com.testApp.api;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ public class EventResource {
 	}
 	
 	@GetMapping("/get-all-events")
-	public Event getAllEvents() {
+	public List<Event> getAllEvents() {
 		//TODO
 		return null;
 	}
