@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.testApp.api.Event;
+import com.testApp.domain.Event;
 import com.testApp.repository.EventRepository;
 
 @Service

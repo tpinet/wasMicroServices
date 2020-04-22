@@ -1,4 +1,4 @@
-package com.testApp.api;
+package com.testApp.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,21 +7,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CUSTOMER")
+@Table(name="CUSTOMERS")
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String userID;
+	private String userid;
 	private String password;
 
-	public Customer (int id, String name, String userID, String password) {
+	public Customer () {
+		super();
+	}
+	
+	public Customer (int id, String name, String userid, String password) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.userID = userID;
+		this.userid = userid;
 		this.password = password;
 	}
 	
@@ -41,12 +45,12 @@ public class Customer {
 		this.name = name;
 	}
 	
-	public String getUserID() {
-		return userID;
+	public String getUserid() {
+		return userid;
 	}
 	
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getPassword() {

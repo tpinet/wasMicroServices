@@ -1,6 +1,6 @@
-insert into CUSTOMERS (NAME, EMAIL) VALUES ('Bruce', 'bruce@a.com');
-insert into CUSTOMERS (NAME, EMAIL) VALUES ('Paul', 'paul@b.com');
-insert into CUSTOMERS (NAME, EMAIL) VALUES ('Rick', 'rick@c.com');
+insert into CUSTOMERS (NAME, USERID, PASSWORD) VALUES ('Bruce', 'bruce', 'mypassword');
+insert into CUSTOMERS (NAME, USERID, PASSWORD) VALUES ('Paul', 'paul', '12345Test');
+insert into CUSTOMERS (NAME, USERID, PASSWORD) VALUES ('Rick', 'rick', 's92meT42&ms0EP');
 
 insert into EVENTS (NAME, DATE, DESCRIPTION, LOCATION, REGISTRATIONLIMIT)
 values('Art Show','2010-05-12 00:00:00.0','Modern Art','Main Gallery',50);

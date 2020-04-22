@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EventSystemApi {
+public class EventSystemApp {
 
 	public static void main (String[] args) {
-		SpringApplication.run(EventSystemApi.class, args);
+		SpringApplication.run(EventSystemApp.class, args);
 	}
 	
 }

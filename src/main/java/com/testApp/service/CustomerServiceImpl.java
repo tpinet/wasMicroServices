@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.testApp.api.Customer;
+import com.testApp.domain.Customer;
 import com.testApp.repository.CustomerRepository;
 
 @Service

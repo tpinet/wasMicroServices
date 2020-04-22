@@ -1,4 +1,4 @@
-package com.testApp.api;
+package com.testApp.domain;
 
 import java.util.Date;
 
@@ -7,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.IndexColumn;
 
 @Entity
 @Table(name="EVENTS")
@@ -20,19 +23,25 @@ public class Event {
 	private Date date;
 	private String description;
 	private String location;
-	private int registrationLimit;
+	private int registrationlimit;
 	
 	@ManyToMany
+	@OrderColumn(name = "PK")
+	@IndexColumn(name = "PK")
 	private Customer[] customers;
 
-	public Event (int id, String name, Date date, String description, String location, int registrationLimit) {
+	public Event () {
+		super();
+	}
+	
+	public Event (int id, String name, Date date, String description, String location, int registrationlimit) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.description = description;
 		this.location = location;
-		this.registrationLimit = registrationLimit;
+		this.registrationlimit = registrationlimit;
 	}
 	
 	public int getId() {
@@ -75,12 +84,12 @@ public class Event {
 		this.location = location;
 	}
 
-	public int getRegistrationLimit() {
-		return registrationLimit;
+	public int getRegistrationlimit() {
+		return registrationlimit;
 	}
 
-	public void setRegistrationLimit(int registrationLimit) {
-		this.registrationLimit = registrationLimit;
+	public void setRegistrationlimit(int registrationlimit) {
+		this.registrationlimit = registrationlimit;
 	}
 	
 	public Customer[] getCustomers() {

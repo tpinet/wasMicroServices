@@ -2,7 +2,7 @@ package com.testApp.service;
 
 import java.util.Optional;
 
-import com.testApp.api.Event;
+import com.testApp.domain.Event;
 
 public interface EventService {
 	public void saveEvent(Event event);
