@@ -2,14 +2,28 @@ package com.testApp.api;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="EVENTS")
 public class Event {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private Date date;
 	private String description;
 	private String location;
 	private int registrationLimit;
+	
+	@ManyToMany
+	private Customer[] customers;
 
 	public Event (int id, String name, Date date, String description, String location, int registrationLimit) {
 		super();
@@ -67,6 +81,14 @@ public class Event {
 
 	public void setRegistrationLimit(int registrationLimit) {
 		this.registrationLimit = registrationLimit;
+	}
+	
+	public Customer[] getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(Customer[] customers) {
+		this.customers = customers;
 	}
 
 }
