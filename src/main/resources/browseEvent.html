@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Metropolitan Center</title>
+</head>
+<body>
+  <h1>Events System</h1>
+
+  <b>Main Menu</b>
+  <br/>
+  <!-- Need URL for link -->
+  <a th:href="@{/addEditEvents">Register for Events</a>
+  <br/>
+  <!-- Need URL for link -->
+  <a th:href="@{/browse}">Browse Events/a>
+
+  <div th:include="footer :: content"></div>
+</body>
+</html>
