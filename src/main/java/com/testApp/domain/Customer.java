@@ -1,9 +1,17 @@
 package com.testApp.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +25,13 @@ public class Customer {
 	private String userid;
 	private String password;
 
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(name = "customer_event",
+			joinColumns = {@JoinColumn(name = "customer_id")},
+			inverseJoinColumns = {@JoinColumn(name = "event_id")}
+	)
+	private Set<Event> events = new HashSet<>();
+	
 	public Customer () {
 		super();
 	}
@@ -59,6 +74,14 @@ public class Customer {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Set<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(Set<Event> events) {
+		this.events = events;
 	}
 	
 

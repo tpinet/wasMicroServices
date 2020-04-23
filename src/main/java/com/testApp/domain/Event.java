@@ -1,16 +1,17 @@
 package com.testApp.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.IndexColumn;
 
 @Entity
 @Table(name="EVENTS")
@@ -25,10 +26,8 @@ public class Event {
 	private String location;
 	private int registrationlimit;
 	
-	@ManyToMany
-	@OrderColumn(name = "PK")
-	@IndexColumn(name = "PK")
-	private Customer[] customers;
+	@ManyToMany(mappedBy = "events", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Set<Customer> customers = new HashSet<>();
 
 	public Event () {
 		super();
@@ -92,11 +91,11 @@ public class Event {
 		this.registrationlimit = registrationlimit;
 	}
 	
-	public Customer[] getCustomers() {
+	public Set<Customer> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(Customer[] customers) {
+	public void setCustomers(Set<Customer> customers) {
 		this.customers = customers;
 	}
 
